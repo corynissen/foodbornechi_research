@@ -1,5 +1,15 @@
 # History files
 .Rhistory
 
+*.*~
+
 # Example code in package build process
 *-Ex.R
+.Rproj.user
+*.Rproj
+
+# until we get the green light, no CDPH data...
+*.xlsx
+geocoded_risk_data.csv
+geocoded_risk_data2.csv
+geocoded_risk_data_w_wards.csv
