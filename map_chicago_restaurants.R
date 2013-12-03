@@ -11,7 +11,7 @@ library(ggplot2)
 library(maptools)
 gpclibPermit()
 
-rest.df <- read.csv("geocoded_risk_data_w_wards.csv", stringsAsFactors=F)
+rest.df <- read.csv("data/geocoded_risk_data_w_wards.csv", stringsAsFactors=F)
 # create data set w/ # of restaurants by ward
 rest.summary <- ddply(rest.df, .(ward), summarize, count=length(ward))
 
@@ -41,7 +41,7 @@ p1 <- qmap("chicago", darken=.1)
 p2 <- p1 +geom_polygon(data=shp.df, aes(x=long, y=lat, group=group, fill=count), 
                color="white", size=.1) +
   coord_cartesian(xlim=c(-87.96, -87.5), ylim=c(41.62, 42.05))
-ggsave(plot=p2, "chi_restaurants.png", height=5, width=5)
+ggsave(plot=p2, "output/chi_restaurants.png", height=5, width=5)
 
 p2 <- p1 + stat_density2d(data=rest.df, aes(x=lng.combined, y=lat.combined, 
       fill=..level..), geom="polygon") +
@@ -49,7 +49,7 @@ p2 <- p1 + stat_density2d(data=rest.df, aes(x=lng.combined, y=lat.combined,
   geom_polygon(data=shp.df, aes(x=long, y=lat, group=group), 
                fill="grey", color="white", size=.1, alpha=.2) +
   coord_cartesian(xlim=c(-87.96, -87.5), ylim=c(41.62, 42.05))
-ggsave(plot=p2, "chi_restaurants.png", height=5, width=5)
+ggsave(plot=p2, "output/chi_restaurants.png", height=5, width=5)
 
 p2 <- p1 + stat_density2d(data=rest.df, aes(x=lng.combined, y=lat.combined, 
                                             fill=..density..), geom="tile", contour=F) +
@@ -57,5 +57,5 @@ p2 <- p1 + stat_density2d(data=rest.df, aes(x=lng.combined, y=lat.combined,
   geom_polygon(data=shp.df, aes(x=long, y=lat, group=group), 
                fill="grey", color="white", size=.1, alpha=.02) +
   coord_cartesian(xlim=c(-87.96, -87.5), ylim=c(41.62, 42.05))
-ggsave(plot=p2, "chi_restaurants.png", height=5, width=5)
+ggsave(plot=p2, "output/chi_restaurants.png", height=5, width=5)
 

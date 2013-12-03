@@ -7,7 +7,7 @@
 library(RCurl)
 library(RJSONIO)
 
-rest.df <- read.csv("geocoded_risk_data2.csv", stringsAsFactors=F)
+rest.df <- read.csv("data/geocoded_risk_data2.csv", stringsAsFactors=F)
 
 rest.df$lat.combined <- rest.df$latitude
 rest.df$lat.combined[is.na(rest.df$lat.combined)] <- rest.df$lat[is.na(rest.df$lat.combined)]
@@ -33,4 +33,4 @@ getWard <- function(lat, lng){
 rest.df$ward <- as.character(mapply(getWard, rest.df$lat.combined, 
                                     rest.df$lng.combined))
 
-write.csv(rest.df, "geocoded_risk_data_w_wards.csv", row.names=F)
+write.csv(rest.df, "data/geocoded_risk_data_w_wards.csv", row.names=F)

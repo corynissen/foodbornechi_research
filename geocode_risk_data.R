@@ -7,7 +7,7 @@
 library(XLConnect)
 library(ggmap)
 
-risk <- readWorksheet(loadWorkbook("Retail Food 1006 Licenses 2013.xlsx"), 
+risk <- readWorksheet(loadWorkbook("data/Retail Food 1006 Licenses 2013.xlsx"), 
                       sheet=1, startRow=3)
 names(risk) <- tolower(names(risk))
 
@@ -49,4 +49,4 @@ for(i in 1:nrow(risk.merged)){
   }
 }
 
-write.csv(risk.merged, "geocoded_risk_data.csv", row.names=F)
+write.csv(risk.merged, "data/geocoded_risk_data.csv", row.names=F)

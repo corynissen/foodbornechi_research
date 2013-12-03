@@ -32,4 +32,4 @@ getWard <- function(lat, lng){
 
 ins$ward <- mapply(getWard, ins$latitude, ins$longitude)
 
-write.csv(ins, "inspections_with_ward.csv", row.names=F)
+write.csv(ins, "data/inspections_with_ward.csv", row.names=F)

@@ -1,7 +1,7 @@
 
 library(ggmap)
 
-risk.merged <- read.csv("geocoded_risk_data.csv", stringsAsFactors=F)
+risk.merged <- read.csv("data/geocoded_risk_data.csv", stringsAsFactors=F)
 risk.merged$lat[is.na(risk.merged$lng)] <- NA
 risk.merged$lng[is.na(risk.merged$lat)] <- NA
 
@@ -25,4 +25,4 @@ for(i in 1:nrow(risk.merged)){
   }
 }
 
-write.csv(risk.merged, "geocoded_risk_data2.csv", row.names=F)
+write.csv(risk.merged, "data/geocoded_risk_data2.csv", row.names=F)
